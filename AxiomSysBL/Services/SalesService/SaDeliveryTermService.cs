@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using AxiomSysBL.IServices;
 using AxiomSysBL.IServices.ISalesService;
 using AxiomSysBL.Models;
@@ -21,8 +22,11 @@ public class SaDeliveryTermService : ISaDeliveryTermService
 
     public List<SaDeliveryTermModel> GetSaDeliveryTerms()
     {
-        return _uowSC.GetRepository<SaDeliveryTerm>().GetAll()
+        var terms = _uowSC.GetRepository<SaDeliveryTerm>().GetAll()
             .OrderBy(x => x.Code)
+            .ToList();
+
+        return terms
             .Select(x => new SaDeliveryTermModel
             {
                 Code = x.Code,
@@ -54,6 +58,12 @@ public class SaDeliveryTermService : ISaDeliveryTermService
 
     public ResponseModel AddSaDeliveryTerm(SaDeliveryTermModel model, int userId)
     {
+        var nameError = ValidateNames(model);
+        if (nameError != null)
+        {
+            return nameError;
+        }
+
         try
         {
             var repository = _uowSC.GetRepository<SaDeliveryTerm>();
@@ -98,6 +108,12 @@ public class SaDeliveryTermService : ISaDeliveryTermService
 
     public ResponseModel EditSaDeliveryTerm(SaDeliveryTermModel model, int userId)
     {
+        var nameError = ValidateNames(model);
+        if (nameError != null)
+        {
+            return nameError;
+        }
+
         try
         {
             var repository = _uowSC.GetRepository<SaDeliveryTerm>();
@@ -159,6 +175,31 @@ public class SaDeliveryTermService : ISaDeliveryTermService
         {
             return _sharedService.HandleException(ex);
         }
+    }
+
+    private ResponseModel? ValidateNames(SaDeliveryTermModel model)
+    {
+        if (!Regex.IsMatch(model.SName, @"^[\u0600-\u06FF0-9\s\-\.\(\)/]+$"))
+        {
+            return new ResponseModel
+            {
+                status = false,
+                messageAr = "الاسم العربي يجب أن يكون باللغة العربية فقط.",
+                messageEn = "The Arabic name must be in Arabic only."
+            };
+        }
+
+        if (!Regex.IsMatch(model.BName, @"^[A-Za-z0-9\s\-\.\(\)/]+$"))
+        {
+            return new ResponseModel
+            {
+                status = false,
+                messageAr = "الاسم الإنجليزي يجب أن يكون باللغة الإنجليزية فقط.",
+                messageEn = "The English name must be in English only."
+            };
+        }
+
+        return null;
     }
 
     private ResponseModel NotFoundResponse()

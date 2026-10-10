@@ -24,7 +24,7 @@ public class SupplyChainContext : DbContext
             entity.Property(e => e.SName).HasColumnName("S_NAME").HasMaxLength(60).IsUnicode(false).IsRequired();
             entity.Property(e => e.BName).HasColumnName("B_NAME").HasMaxLength(60).IsUnicode(false).IsRequired();
             entity.Property(e => e.Days).HasColumnName("DAYS").HasColumnType("NUMBER(4)");
-            entity.Property(e => e.ActiveFlag).HasColumnName("ACTIVE_FLAG").HasColumnType("NUMBER(1)").HasDefaultValueSql("1");
+            entity.Property(e => e.ActiveFlag).HasColumnName("ACTIVE_FLAG").HasDefaultValueSql("1");
             entity.Property(e => e.EntryUser).HasColumnName("ENTRY_USER").HasColumnType("NUMBER(10)");
             entity.Property(e => e.EntryDate).HasColumnName("ENTRY_DATE").HasColumnType("DATE");
             entity.Property(e => e.ChangeUser).HasColumnName("CHANGE_USER").HasColumnType("NUMBER(10)");
