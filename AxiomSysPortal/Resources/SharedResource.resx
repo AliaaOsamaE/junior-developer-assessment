@@ -23,12 +23,11 @@
   <data name="Search" xml:space="preserve"><value>Search...</value></data>
   <data name="Required" xml:space="preserve"><value>This field is required.</value></data>
   <data name="Home" xml:space="preserve"><value>Home</value></data>
-  <data name="Welcome" xml:space="preserve"><value>Welcome to AxiomSys</value></data>
+  <data name="Welcome" xml:space="preserve"><value>Welcome to i-Axiom</value></data>
   <data name="Login" xml:space="preserve"><value>Sign in</value></data>
   <data name="Logout" xml:space="preserve"><value>Sign out</value></data>
   <data name="UserId" xml:space="preserve"><value>User Id</value></data>
   <data name="CompanyCode" xml:space="preserve"><value>Company Code</value></data>
-  <data name="DevLoginNote" xml:space="preserve"><value>Development sign-in: no password is checked.</value></data>
   <data name="LoginFailed" xml:space="preserve"><value>Sign-in failed.</value></data>
   <data name="SwitchLanguage" xml:space="preserve"><value>العربية</value></data>
   <data name="SessionExpired" xml:space="preserve"><value>Your session has expired. Please sign in again.</value></data>
@@ -43,4 +42,6 @@
   <data name="DtPrevious" xml:space="preserve"><value>Previous</value></data>
   <data name="SalesDeliveryTerms" xml:space="preserve"><value>Sales Delivery Terms</value></data>
   <data name="Inactive" xml:space="preserve"><value>Inactive</value></data>
+  <data name="ArabicOnly" xml:space="preserve"><value>Arabic letters only</value></data>
+  <data name="EnglishOnly" xml:space="preserve"><value>English letters only</value></data>
 </root>

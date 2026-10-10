@@ -23,12 +23,11 @@
   <data name="Search" xml:space="preserve"><value>بحث...</value></data>
   <data name="Required" xml:space="preserve"><value>هذا الحقل مطلوب.</value></data>
   <data name="Home" xml:space="preserve"><value>الرئيسية</value></data>
-  <data name="Welcome" xml:space="preserve"><value>مرحباً بك في AxiomSys</value></data>
+  <data name="Welcome" xml:space="preserve"><value>مرحباً بك في i-Axiom</value></data>
   <data name="Login" xml:space="preserve"><value>تسجيل الدخول</value></data>
   <data name="Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
   <data name="UserId" xml:space="preserve"><value>رقم المستخدم</value></data>
   <data name="CompanyCode" xml:space="preserve"><value>رقم الشركة</value></data>
-  <data name="DevLoginNote" xml:space="preserve"><value>تسجيل دخول للتطوير: لا يتم التحقق من كلمة المرور.</value></data>
   <data name="LoginFailed" xml:space="preserve"><value>فشل تسجيل الدخول.</value></data>
   <data name="SwitchLanguage" xml:space="preserve"><value>English</value></data>
   <data name="SessionExpired" xml:space="preserve"><value>انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى.</value></data>
@@ -43,4 +42,6 @@
   <data name="DtPrevious" xml:space="preserve"><value>السابق</value></data>
   <data name="SalesDeliveryTerms" xml:space="preserve"><value>شروط التسليم</value></data>
   <data name="Inactive" xml:space="preserve"><value>غير نشط</value></data>
+  <data name="ArabicOnly" xml:space="preserve"><value>حروف عربية فقط</value></data>
+  <data name="EnglishOnly" xml:space="preserve"><value>حروف إنجليزية فقط</value></data>
 </root>

@@ -17,6 +17,16 @@ html {
 body {
   background-color: #f4f6f8;
   color: var(--text);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+h1 {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
 }
 
 a {
@@ -51,9 +61,42 @@ a {
   border-radius: 0.75rem;
 }
 
+.table-light {
+  --bs-table-bg: #e8f6f4;
+}
+
 .table-light th {
-  color: #555555;
+  color: var(--brand-dark);
   font-weight: 600;
+}
+
+.table > tbody > tr > td,
+.table > thead > tr > th {
+  padding: 0.65rem 0.75rem;
+}
+
+.modal-content {
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+.modal-header {
+  background-color: var(--brand);
+  color: #fff;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.modal-header .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-body .form-label {
+  font-weight: 500;
+}
+
+.modal-footer {
+  border-top: 1px solid #eeeeee;
 }
 
 .page-link {

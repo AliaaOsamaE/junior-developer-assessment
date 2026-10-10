@@ -3,10 +3,44 @@ $(function () {
         bFilter: true,
         sDom: 'ftlpi',
         language: window.datatableTexts.language,
-        columnDefs: [{ orderable: false, targets: 5 }],
+        order: [[0, 'asc']],
+        columnDefs: [
+            { type: 'num', targets: [0, 3] },
+            { orderable: false, targets: 4 }
+        ],
         initComplete: function () {
             $('.dataTables_filter').appendTo('#tableSearch');
         }
+    });
+
+    $('.needs-validation').on('submit', function (event) {
+        var form = this;
+
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            form.classList.add('was-validated');
+            return;
+        }
+
+        if (form.dataset.sent === 'true') {
+            event.preventDefault();
+            return;
+        }
+        form.dataset.sent = 'true';
+    });
+
+    $('#addModal').on('show.bs.modal', function () {
+        var form = this.querySelector('form');
+        form.reset();
+        form.classList.remove('was-validated');
+    });
+
+    $('#addModal').on('shown.bs.modal', function () {
+        $('#addCode').trigger('focus');
+    });
+
+    $('#editModal').on('hidden.bs.modal', function () {
+        this.querySelector('form').classList.remove('was-validated');
     });
 
     $('#dataTable').on('click', '.edit-button', function () {
