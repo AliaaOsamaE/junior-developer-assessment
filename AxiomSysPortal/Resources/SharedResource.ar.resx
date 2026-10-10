@@ -42,4 +42,5 @@
   <data name="DtNext" xml:space="preserve"><value>التالي</value></data>
   <data name="DtPrevious" xml:space="preserve"><value>السابق</value></data>
   <data name="SalesDeliveryTerms" xml:space="preserve"><value>شروط التسليم</value></data>
+  <data name="Inactive" xml:space="preserve"><value>غير نشط</value></data>
 </root>

@@ -4,6 +4,9 @@
     ViewData["Title"] = SharedLocalizer["SalesDeliveryTerms"];
 }
 
+<div class="card shadow-sm">
+<div class="card-body">
+
 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
     <h1 class="h4 mb-0">@SharedLocalizer["SalesDeliveryTerms"]</h1>
     <div class="d-flex align-items-center gap-2">
@@ -12,8 +15,8 @@
     </div>
 </div>
 
-<table id="dataTable" class="table table-striped table-bordered w-100">
-    <thead>
+<table id="dataTable" class="table table-hover table-sm align-middle w-100">
+    <thead class="table-light">
         <tr>
             <th>@SharedLocalizer["3"]</th>
             <th>@SharedLocalizer["5"]</th>
@@ -31,7 +34,16 @@
                 <td dir="rtl">@term.SName</td>
                 <td dir="ltr">@term.BName</td>
                 <td>@term.Days</td>
-                <td>@(term.Active ? SharedLocalizer["Yes"] : SharedLocalizer["No"])</td>
+                <td>
+                    @if (term.Active)
+                    {
+                        <span class="badge bg-success">@SharedLocalizer["Active"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">@SharedLocalizer["Inactive"]</span>
+                    }
+                </td>
                 <td>
                     <button type="button" class="btn btn-sm btn-outline-primary edit-button" data-code="@term.Code">@SharedLocalizer["5583"]</button>
                     <button type="button" class="btn btn-sm btn-outline-danger delete-button" data-code="@term.Code">@SharedLocalizer["18"]</button>
@@ -40,6 +52,9 @@
         }
     </tbody>
 </table>
+
+</div>
+</div>
 
 <div class="modal fade" id="addModal" tabindex="-1">
     <div class="modal-dialog">

@@ -1,3 +1,9 @@
+:root {
+  --brand: #2bb3a3;
+  --brand-dark: #22907f;
+  --text: #333333;
+}
+
 html {
   font-size: 14px;
 }
@@ -8,6 +14,66 @@ html {
   }
 }
 
+body {
+  background-color: #f4f6f8;
+  color: var(--text);
+}
+
+a {
+  color: var(--brand-dark);
+}
+
+.navbar .nav-link:hover {
+  color: var(--brand) !important;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--brand);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand-dark);
+  --bs-btn-hover-border-color: var(--brand-dark);
+  --bs-btn-active-bg: var(--brand-dark);
+  --bs-btn-active-border-color: var(--brand-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--brand-dark);
+  --bs-btn-border-color: var(--brand);
+  --bs-btn-hover-bg: var(--brand);
+  --bs-btn-hover-border-color: var(--brand);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--brand-dark);
+  --bs-btn-active-border-color: var(--brand-dark);
+}
+
+.card {
+  border: 0;
+  border-radius: 0.75rem;
+}
+
+.table-light th {
+  color: #555555;
+  font-weight: 600;
+}
+
+.page-link {
+  color: var(--brand-dark);
+}
+
+.page-item.active .page-link {
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+.form-control:focus, .form-check-input:focus {
+  border-color: var(--brand);
+}
+
+.form-check-input:checked {
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+  box-shadow: 0 0 0 0.25rem rgba(43, 179, 163, 0.25);
 }

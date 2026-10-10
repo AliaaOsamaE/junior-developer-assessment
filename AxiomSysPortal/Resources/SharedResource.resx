@@ -42,4 +42,5 @@
   <data name="DtNext" xml:space="preserve"><value>Next</value></data>
   <data name="DtPrevious" xml:space="preserve"><value>Previous</value></data>
   <data name="SalesDeliveryTerms" xml:space="preserve"><value>Sales Delivery Terms</value></data>
+  <data name="Inactive" xml:space="preserve"><value>Inactive</value></data>
 </root>

@@ -37,10 +37,15 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" href="/@culture">AxiomSys</a>
+                <a class="navbar-brand" href="/@culture">
+                    <img src="~/images/axiom-logo.svg" alt="AxiomSys" height="38" />
+                </a>
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="/@culture">@SharedLocalizer["Home"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/@culture/SALES/DELIVERYTERMS/Index">@SharedLocalizer["SalesDeliveryTerms"]</a>
                     </li>
                 </ul>
                 <a class="btn btn-sm btn-outline-secondary mx-2" href="@switchUrl">@SharedLocalizer["SwitchLanguage"]</a>

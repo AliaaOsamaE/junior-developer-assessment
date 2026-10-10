@@ -8,13 +8,15 @@ using AxiomSysSL.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Oracle.EntityFrameworkCore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 var connectionString = builder.Configuration.GetConnectionString("SupplyChain") ?? "";
 
-builder.Services.AddDbContext<SupplyChainContext>(options => options.UseOracle(connectionString));
+builder.Services.AddDbContext<SupplyChainContext>(options =>
+    options.UseOracle(connectionString, oracle => oracle.UseOracleSQLCompatibility(OracleSQLCompatibility.DatabaseVersion19)));
 builder.Services.AddScoped<IUnitOfWork<SupplyChainContext>, UnitOfWork<SupplyChainContext>>();
 
 builder.Services.AddScoped<ISharedService, SharedService>();

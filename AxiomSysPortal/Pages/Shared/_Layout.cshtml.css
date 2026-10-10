@@ -1,21 +1,5 @@
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-a {
-  color: #0077cc;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 3px solid #2bb3a3 !important;
 }
 
 .box-shadow {
