@@ -41,4 +41,5 @@
   <data name="DtLengthMenu" xml:space="preserve"><value>عرض _MENU_</value></data>
   <data name="DtNext" xml:space="preserve"><value>التالي</value></data>
   <data name="DtPrevious" xml:space="preserve"><value>السابق</value></data>
+  <data name="SalesDeliveryTerms" xml:space="preserve"><value>شروط التسليم</value></data>
 </root>

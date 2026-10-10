@@ -41,4 +41,5 @@
   <data name="DtLengthMenu" xml:space="preserve"><value>Show _MENU_</value></data>
   <data name="DtNext" xml:space="preserve"><value>Next</value></data>
   <data name="DtPrevious" xml:space="preserve"><value>Previous</value></data>
+  <data name="SalesDeliveryTerms" xml:space="preserve"><value>Sales Delivery Terms</value></data>
 </root>
