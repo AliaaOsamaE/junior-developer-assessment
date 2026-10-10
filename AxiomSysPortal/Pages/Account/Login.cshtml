@@ -1,0 +1,30 @@
+@page
+@model AxiomSysPortal.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = SharedLocalizer["Login"];
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <h1 class="h3 mb-3">@SharedLocalizer["Login"]</h1>
+        <p class="text-muted small">@SharedLocalizer["DevLoginNote"]</p>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger">@Model.ErrorMessage</div>
+        }
+
+        <form method="post">
+            <input type="hidden" asp-for="ReturnUrl" />
+            <div class="mb-3">
+                <label asp-for="UserId" class="form-label">@SharedLocalizer["UserId"]</label>
+                <input asp-for="UserId" class="form-control" type="number" min="1" required />
+            </div>
+            <div class="mb-3">
+                <label asp-for="CompanyCode" class="form-label">@SharedLocalizer["CompanyCode"]</label>
+                <input asp-for="CompanyCode" class="form-control" type="number" min="1" required />
+            </div>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer["Login"]</button>
+        </form>
+    </div>
+</div>

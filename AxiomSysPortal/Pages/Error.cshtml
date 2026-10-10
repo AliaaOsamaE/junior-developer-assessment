@@ -1,0 +1,12 @@
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = SharedLocalizer["UnexpectedError"];
+}
+
+<h1 class="h4 text-danger">@SharedLocalizer["UnexpectedError"]</h1>
+
+@if (Model.ShowRequestId)
+{
+    <p><code>@Model.RequestId</code></p>
+}
