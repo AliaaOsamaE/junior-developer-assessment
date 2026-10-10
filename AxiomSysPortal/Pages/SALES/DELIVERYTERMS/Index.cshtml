@@ -1,0 +1,145 @@
+@page
+@model AxiomSysPortal.Pages.SALES.DELIVERYTERMS.IndexModel
+@{
+    ViewData["Title"] = SharedLocalizer["SalesDeliveryTerms"];
+}
+
+<div class="card shadow-sm">
+<div class="card-body">
+
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+    <h1 class="h4 mb-0">@SharedLocalizer["SalesDeliveryTerms"]</h1>
+    <div class="d-flex align-items-center gap-2">
+        <div id="tableSearch" class="search-input"></div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">@SharedLocalizer["32"]</button>
+    </div>
+</div>
+
+<table id="dataTable" class="table table-hover table-sm align-middle w-100">
+    <thead class="table-light">
+        <tr>
+            <th>@SharedLocalizer["3"]</th>
+            <th>@(CultureHelper.IsArabic ? SharedLocalizer["5"] : SharedLocalizer["4"])</th>
+            <th>@SharedLocalizer["Days"]</th>
+            <th>@SharedLocalizer["Active"]</th>
+            <th>@SharedLocalizer["Actions"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var term in Model.Terms)
+        {
+            <tr>
+                <td>@term.Code</td>
+                <td>@(CultureHelper.IsArabic ? term.SName : term.BName)</td>
+                <td>@term.Days</td>
+                <td data-order="@(term.Active ? 1 : 0)">
+                    @if (term.Active)
+                    {
+                        <span class="badge bg-success">@SharedLocalizer["Active"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">@SharedLocalizer["Inactive"]</span>
+                    }
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary edit-button" data-code="@term.Code">@SharedLocalizer["5583"]</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger delete-button" data-code="@term.Code">@SharedLocalizer["18"]</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="post" class="modal-content needs-validation" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title">@SharedLocalizer["32"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="addCode" class="form-label">@SharedLocalizer["3"]</label>
+                    <input id="addCode" name="Input.Code" type="number" min="1" max="999" class="form-control" required />
+                    <div class="invalid-feedback">@SharedLocalizer["Required"]</div>
+                </div>
+                <div class="mb-3">
+                    <label for="addSName" class="form-label">@SharedLocalizer["5"]</label>
+                    <input id="addSName" name="Input.SName" type="text" maxlength="60" class="form-control" dir="rtl" required pattern="[\u0600-\u06FF0-9\s\-\.\(\)\/]+" title="@SharedLocalizer["ArabicOnly"]" />
+                    <div class="invalid-feedback">@SharedLocalizer["ArabicOnly"]</div>
+                </div>
+                <div class="mb-3">
+                    <label for="addBName" class="form-label">@SharedLocalizer["4"]</label>
+                    <input id="addBName" name="Input.BName" type="text" maxlength="60" class="form-control" dir="ltr" required pattern="[A-Za-z0-9\s\-\.\(\)\/]+" title="@SharedLocalizer["EnglishOnly"]" />
+                    <div class="invalid-feedback">@SharedLocalizer["EnglishOnly"]</div>
+                </div>
+                <div class="mb-3">
+                    <label for="addDays" class="form-label">@SharedLocalizer["Days"]</label>
+                    <input id="addDays" name="Input.Days" type="number" min="0" max="9999" class="form-control" />
+                </div>
+                <div class="form-check">
+                    <input id="addActive" name="Input.Active" type="checkbox" value="true" class="form-check-input" checked />
+                    <input name="Input.Active" type="hidden" value="false" />
+                    <label for="addActive" class="form-check-label">@SharedLocalizer["Active"]</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer["Cancel"]</button>
+                <button type="submit" name="AddDetail" value="1" class="btn btn-primary">@SharedLocalizer["Save"]</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="post" class="modal-content needs-validation" novalidate>
+            <div class="modal-header">
+                <h5 class="modal-title">@SharedLocalizer["5583"]</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="editCode" class="form-label">@SharedLocalizer["3"]</label>
+                    <input id="editCode" name="Input.Code" type="number" class="form-control" readonly />
+                </div>
+                <div class="mb-3">
+                    <label for="editSName" class="form-label">@SharedLocalizer["5"]</label>
+                    <input id="editSName" name="Input.SName" type="text" maxlength="60" class="form-control" dir="rtl" required pattern="[\u0600-\u06FF0-9\s\-\.\(\)\/]+" title="@SharedLocalizer["ArabicOnly"]" />
+                    <div class="invalid-feedback">@SharedLocalizer["ArabicOnly"]</div>
+                </div>
+                <div class="mb-3">
+                    <label for="editBName" class="form-label">@SharedLocalizer["4"]</label>
+                    <input id="editBName" name="Input.BName" type="text" maxlength="60" class="form-control" dir="ltr" required pattern="[A-Za-z0-9\s\-\.\(\)\/]+" title="@SharedLocalizer["EnglishOnly"]" />
+                    <div class="invalid-feedback">@SharedLocalizer["EnglishOnly"]</div>
+                </div>
+                <div class="mb-3">
+                    <label for="editDays" class="form-label">@SharedLocalizer["Days"]</label>
+                    <input id="editDays" name="Input.Days" type="number" min="0" max="9999" class="form-control" />
+                </div>
+                <div class="form-check">
+                    <input id="editActive" name="Input.Active" type="checkbox" value="true" class="form-check-input" />
+                    <input name="Input.Active" type="hidden" value="false" />
+                    <label for="editActive" class="form-check-label">@SharedLocalizer["Active"]</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer["Cancel"]</button>
+                <button type="submit" name="EditDetail" value="1" class="btn btn-primary">@SharedLocalizer["Save"]</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<form method="post" id="deleteForm">
+    <input type="hidden" name="DeleteCode" id="deleteCode" />
+    <input type="hidden" name="DeleteDetail" value="1" />
+</form>
+
+@section Scripts {
+    <script src="~/PagesJS/SALES/DELIVERYTERMS.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,107 @@
+@{
+    var isArabic = CultureHelper.IsArabic;
+    var culture = CultureHelper.CurrentCulture;
+    var otherCulture = isArabic ? CultureHelper.English : CultureHelper.Arabic;
+
+    var path = Context.Request.Path.Value ?? "/";
+    string switchUrl;
+    if (path == "/en" || path == "/ar" || path.StartsWith("/en/") || path.StartsWith("/ar/"))
+    {
+        switchUrl = "/" + otherCulture + path.Substring(3);
+    }
+    else
+    {
+        switchUrl = "/" + otherCulture + path;
+    }
+    switchUrl = switchUrl + Context.Request.QueryString;
+}
+<!DOCTYPE html>
+<html lang="@culture" dir="@(isArabic ? "rtl" : "ltr")">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AxiomSys</title>
+    @if (isArabic)
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" />
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    }
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AxiomSysPortal.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" href="/@culture">
+                    <img src="~/images/axiom-logo.svg" alt="AxiomSys" height="38" />
+                </a>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/@culture">@SharedLocalizer["Home"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/@culture/SALES/DELIVERYTERMS/Index">@SharedLocalizer["SalesDeliveryTerms"]</a>
+                    </li>
+                </ul>
+                <a class="btn btn-sm btn-outline-secondary mx-2" href="@switchUrl">@SharedLocalizer["SwitchLanguage"]</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <form method="post" action="/@culture/Account/Logout" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-sm btn-outline-danger">@SharedLocalizer["Logout"]</button>
+                    </form>
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer"
+         data-success="@TempData["SuccessMessage"]" data-error="@TempData["ErrorMessage"]"></div>
+
+    <script>
+        window.datatableTexts = {
+            searchPlaceholder: @Json.Serialize(SharedLocalizer["Search"].Value),
+            language: {
+                search: ' ',
+                searchPlaceholder: @Json.Serialize(SharedLocalizer["Search"].Value),
+                emptyTable: @Json.Serialize(SharedLocalizer["DtEmptyTable"].Value),
+                zeroRecords: @Json.Serialize(SharedLocalizer["DtZeroRecords"].Value),
+                info: @Json.Serialize(SharedLocalizer["DtInfo"].Value),
+                infoEmpty: @Json.Serialize(SharedLocalizer["DtInfoEmpty"].Value),
+                infoFiltered: '',
+                lengthMenu: @Json.Serialize(SharedLocalizer["DtLengthMenu"].Value),
+                paginate: {
+                    next: @Json.Serialize(SharedLocalizer["DtNext"].Value),
+                    previous: @Json.Serialize(SharedLocalizer["DtPrevious"].Value)
+                }
+            }
+        };
+        window.appTexts = {
+            confirmDeleteTitle: @Json.Serialize(SharedLocalizer["ConfirmDeleteTitle"].Value),
+            confirmDeleteText: @Json.Serialize(SharedLocalizer["ConfirmDeleteText"].Value),
+            yes: @Json.Serialize(SharedLocalizer["Yes"].Value),
+            no: @Json.Serialize(SharedLocalizer["No"].Value),
+            unexpectedError: @Json.Serialize(SharedLocalizer["UnexpectedError"].Value),
+            isArabic: @Json.Serialize(isArabic)
+        };
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

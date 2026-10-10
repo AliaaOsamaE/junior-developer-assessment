@@ -1,0 +1,7 @@
+.border-bottom {
+  border-bottom: 3px solid #2bb3a3 !important;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="3" xml:space="preserve"><value>الكود</value></data>
+  <data name="4" xml:space="preserve"><value>الاسم الإنجليزي</value></data>
+  <data name="5" xml:space="preserve"><value>الاسم العربي</value></data>
+  <data name="18" xml:space="preserve"><value>حذف</value></data>
+  <data name="32" xml:space="preserve"><value>إضافة</value></data>
+  <data name="5583" xml:space="preserve"><value>تعديل</value></data>
+  <data name="Save" xml:space="preserve"><value>حفظ</value></data>
+  <data name="Cancel" xml:space="preserve"><value>إلغاء</value></data>
+  <data name="Close" xml:space="preserve"><value>إغلاق</value></data>
+  <data name="Days" xml:space="preserve"><value>الأيام</value></data>
+  <data name="Active" xml:space="preserve"><value>نشط</value></data>
+  <data name="Actions" xml:space="preserve"><value>الإجراءات</value></data>
+  <data name="Yes" xml:space="preserve"><value>نعم</value></data>
+  <data name="No" xml:space="preserve"><value>لا</value></data>
+  <data name="ConfirmDeleteTitle" xml:space="preserve"><value>هل أنت متأكد؟</value></data>
+  <data name="ConfirmDeleteText" xml:space="preserve"><value>سيتم حذف هذا السجل نهائياً.</value></data>
+  <data name="Search" xml:space="preserve"><value>بحث...</value></data>
+  <data name="Required" xml:space="preserve"><value>هذا الحقل مطلوب.</value></data>
+  <data name="Home" xml:space="preserve"><value>الرئيسية</value></data>
+  <data name="Welcome" xml:space="preserve"><value>مرحباً بك في i-Axiom</value></data>
+  <data name="Login" xml:space="preserve"><value>تسجيل الدخول</value></data>
+  <data name="Logout" xml:space="preserve"><value>تسجيل الخروج</value></data>
+  <data name="UserId" xml:space="preserve"><value>رقم المستخدم</value></data>
+  <data name="CompanyCode" xml:space="preserve"><value>رقم الشركة</value></data>
+  <data name="LoginFailed" xml:space="preserve"><value>فشل تسجيل الدخول.</value></data>
+  <data name="SwitchLanguage" xml:space="preserve"><value>English</value></data>
+  <data name="SessionExpired" xml:space="preserve"><value>انتهت الجلسة، يرجى تسجيل الدخول مرة أخرى.</value></data>
+  <data name="AccessDenied" xml:space="preserve"><value>غير مسموح لك بتنفيذ هذا الإجراء.</value></data>
+  <data name="UnexpectedError" xml:space="preserve"><value>حدث خطأ غير متوقع، حاول مرة أخرى.</value></data>
+  <data name="DtEmptyTable" xml:space="preserve"><value>لا توجد بيانات</value></data>
+  <data name="DtZeroRecords" xml:space="preserve"><value>لا توجد نتائج مطابقة</value></data>
+  <data name="DtInfo" xml:space="preserve"><value>_START_ إلى _END_ من _TOTAL_</value></data>
+  <data name="DtInfoEmpty" xml:space="preserve"><value>0 سجل</value></data>
+  <data name="DtLengthMenu" xml:space="preserve"><value>عرض _MENU_</value></data>
+  <data name="DtNext" xml:space="preserve"><value>التالي</value></data>
+  <data name="DtPrevious" xml:space="preserve"><value>السابق</value></data>
+  <data name="SalesDeliveryTerms" xml:space="preserve"><value>شروط التسليم</value></data>
+  <data name="Inactive" xml:space="preserve"><value>غير نشط</value></data>
+  <data name="ArabicOnly" xml:space="preserve"><value>حروف عربية فقط</value></data>
+  <data name="EnglishOnly" xml:space="preserve"><value>حروف إنجليزية فقط</value></data>
+</root>
